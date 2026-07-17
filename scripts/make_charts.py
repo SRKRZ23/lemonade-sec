@@ -16,9 +16,15 @@ from rules import RULES  # measured: the real rule set
 AMBER, INK = "#F5A700", "#0A0A0A"
 GREEN, RED = "#1a9e5a", "#d64545"          # local/private win · cloud-risk / critical
 G1, G2, G3, LINE, TINT = "#3a3a3a", "#6a6a6a", "#b8b8b8", "#e6e6e6", "#fff6e0"
-for fam in ("Helvetica Neue", "Helvetica", "Arial"):
-    if any(fam.lower() in f.name.lower() for f in font_manager.fontManager.ttflist):
-        plt.rcParams["font.family"] = fam; break
+
+# One typeface across charts / deck / video: same Inter TTFs used by the Remotion
+# video (deck/fonts/), registered directly rather than hoping a system font matches.
+_FONTS_DIR = os.path.join(os.path.dirname(__file__), "..", "deck", "fonts")
+for _f in ("Inter-400.ttf", "Inter-500.ttf", "Inter-700.ttf", "Inter-900.ttf"):
+    _p = os.path.join(_FONTS_DIR, _f)
+    if os.path.exists(_p):
+        font_manager.fontManager.addfont(_p)
+plt.rcParams["font.family"] = "Inter Variable"
 plt.rcParams.update({"figure.facecolor": "white", "axes.facecolor": "white",
                      "savefig.facecolor": "white", "axes.edgecolor": LINE, "text.color": INK,
                      "axes.labelcolor": INK, "xtick.color": G1, "ytick.color": G2})

@@ -8,9 +8,14 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
 AMBER, INK, DK, G1, G2, LINE = "#F5A700", "#0A0A0A", "#c47f00", "#3a3a3a", "#6a6a6a", "#e6e6e6"
-for fam in ("Helvetica Neue", "Helvetica", "Arial"):
-    if any(fam.lower() in f.name.lower() for f in font_manager.fontManager.ttflist):
-        plt.rcParams["font.family"] = fam; break
+
+# One typeface across charts / deck / video — see scripts/make_charts.py for the same pattern.
+_FONTS_DIR = os.path.join(os.path.dirname(__file__), "..", "deck", "fonts")
+for _f in ("Inter-400.ttf", "Inter-500.ttf", "Inter-700.ttf", "Inter-900.ttf"):
+    _p = os.path.join(_FONTS_DIR, _f)
+    if os.path.exists(_p):
+        font_manager.fontManager.addfont(_p)
+plt.rcParams["font.family"] = "Inter Variable"
 
 HERE = os.path.dirname(__file__)
 def load(n): return json.load(open(os.path.join(HERE, "results", n)))

@@ -38,6 +38,25 @@ cloud chatbot.
 <sub>Charts regenerate from source: `python3 scripts/make_charts.py`. Rule counts are read
 from `rules.py` (measured); economics are labelled MODELED (public list-price estimates).</sub>
 
+## Measured on real AMD hardware 🔴
+
+The local-AI triage pipeline was benchmarked on an **AMD Instinct MI300X** (gfx942, ROCm,
+`torch 2.9.1+rocm6.3`, fp16) running `Qwen2.5-Coder-1.5B-Instruct` — proving Lemonade-Sec's
+private, on-device triage runs end-to-end on AMD accelerators.
+
+<p align="center"><img src="assets/chart_mi300x.png" width="88%" alt="Measured on AMD MI300X"/></p>
+
+| Metric | Measured |
+|---|---|
+| Token generation (decode) | **64.3 tok/s** |
+| Prefill (prompt) | **13,779 tok/s** |
+| Time to first token | **19 ms** |
+
+<sub>Honest caveats: HuggingFace eager backend (unoptimized) on an MI300X **VF** (virtualized
+fraction) — a real pipeline measurement, **not** a hardware peak; vLLM / llama.cpp-ROCm would be
+higher. The 1.5B model proves the pipeline runs on AMD; production security triage should use a
+7B+ model. Raw run: [`benchmark/results/mi300x_qwen2.5-coder-1.5b.json`](benchmark/results/mi300x_qwen2.5-coder-1.5b.json) · reproduce with `benchmark/amd_native_bench.sh`.</sub>
+
 ## How it works
 
 1. **SAST core** — a regex rule set (35 rules across web2 **and** web3/Solidity: secrets,

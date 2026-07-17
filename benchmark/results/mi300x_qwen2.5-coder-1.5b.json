@@ -1,0 +1,32 @@
+{
+  "measured": true,
+  "date": "2026-07-17",
+  "tool": "lemonade-sec",
+  "runner": "lemonade v9.1.4 (huggingface-load + huggingface-bench)",
+  "hardware": {
+    "gpu": "AMD Instinct MI300X VF",
+    "gfx": "gfx942",
+    "rocm_system": "7.2",
+    "torch": "2.9.1+rocm6.3",
+    "note": "VF = virtualized fraction of the GPU; number is not a hardware peak"
+  },
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "dtype": "float16",
+  "device": "cuda",
+  "backend": "Hugging Face transformers (eager)",
+  "throughput": {
+    "token_generation_tok_per_sec": 64.285,
+    "prefill_tok_per_sec": 13779.05,
+    "time_to_first_token_sec": 0.019,
+    "ttft_std_sec": 0.004,
+    "prompt_tokens": 256,
+    "response_tokens": 128,
+    "iterations": 5,
+    "warmup_iterations": 2
+  },
+  "caveats": [
+    "HuggingFace eager backend is unoptimized; vLLM / llama.cpp-ROCm would be substantially faster on MI300X.",
+    "MI300X VF (virtualized) — not the full physical GPU.",
+    "1.5B model: proves the local-AI triage pipeline runs on AMD hardware; production security triage should use a 7B+ model (the 1.5B verdict was low quality)."
+  ]
+}

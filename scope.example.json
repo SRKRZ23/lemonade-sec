@@ -1,0 +1,8 @@
+{
+  "_comment": "Authorization gate for bug-bounty / client work. Lemonade-Sec REFUSES to scan any target outside authorized_paths. For reviewing your OWN code you can omit --scope entirely.",
+  "program": "example-program",
+  "authorized_paths": [
+    "~/code/my-own-repo",
+    "./samples"
+  ]
+}

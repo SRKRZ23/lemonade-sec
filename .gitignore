@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+# local scan outputs
+lemonade_sec_report.md
+demo_report.md
+demo_findings.json
+findings.json
+report.md
+*.local.json
+.DS_Store

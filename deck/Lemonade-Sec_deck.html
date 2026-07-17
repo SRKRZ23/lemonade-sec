@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lemonade-Sec — Investor / Business Deck</title>
+<style>
+  :root{
+    --amber:#F5A700; --ink:#0A0A0A; --green:#1a9e5a; --red:#d64545;
+    --g1:#3a3a3a; --g2:#6a6a6a; --g3:#b8b8b8; --line:#e6e6e6; --tint:#fff6e0; --paper:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#333;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink)}
+  .slide{
+    position:relative;width:1280px;height:720px;background:var(--paper);margin:22px auto;
+    padding:58px 66px;overflow:hidden;page-break-after:always;
+  }
+  .tag{color:var(--amber);font-weight:800;font-size:15px;letter-spacing:.14em;text-transform:uppercase}
+  h1{font-size:52px;line-height:1.04;letter-spacing:-.01em;margin:8px 0 14px}
+  h2{font-size:34px;line-height:1.08;margin:6px 0 18px}
+  h3{font-size:20px;margin:0 0 6px}
+  p,li{font-size:18.5px;line-height:1.5;color:var(--g1)}
+  .lede{font-size:23px;color:var(--ink);max-width:46ch}
+  .pageno{position:absolute;bottom:26px;right:34px;color:var(--g3);font-size:14px;font-weight:700}
+  .brandfoot{position:absolute;bottom:26px;left:66px;color:var(--g2);font-size:14px;font-weight:700}
+  .row{display:flex;gap:34px}
+  .col{flex:1}
+  .card{background:var(--tint);border:1px solid #f2dfae;border-radius:14px;padding:20px 22px}
+  .card.plain{background:#fafafa;border-color:var(--line)}
+  .stat{font-size:44px;font-weight:800;color:var(--ink);line-height:1}
+  .stat .u{font-size:18px;color:var(--g2);font-weight:700}
+  .kpis{display:flex;gap:16px;margin-top:14px}
+  .kpi{flex:1;background:#fafafa;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .kpi .n{font-size:30px;font-weight:800}
+  .kpi .l{font-size:13.5px;color:var(--g2);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  ul{margin:6px 0 0 20px} li{margin:7px 0}
+  .pill{display:inline-block;background:var(--ink);color:#fff;font-size:13px;font-weight:800;
+    padding:4px 12px;border-radius:999px;letter-spacing:.04em}
+  .pill.amber{background:var(--amber);color:#111}
+  .pill.green{background:var(--green)} .pill.red{background:var(--red)}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:12px}
+  .note{font-size:13.5px;color:var(--g2);font-weight:700}
+  table.tiers{width:100%;border-collapse:collapse;margin-top:6px}
+  .tiers th,.tiers td{text-align:left;font-size:16px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .tiers th{color:var(--g2);text-transform:uppercase;font-size:12.5px;letter-spacing:.05em}
+  .tiers td b{font-size:17px}
+  .barwrap{margin-top:10px}
+  .accent{color:var(--amber)} .gd{color:var(--green)} .rd{color:var(--red)}
+  @media print{ html,body{background:#fff} .slide{margin:0;box-shadow:none} @page{size:1280px 720px;margin:0} }
+</style>
+</head>
+<body>
+
+<!-- 1 · PROBLEM -->
+<section class="slide">
+  <div class="tag">Lemonade-Sec 🍋🔒 · AMD Lemonade Developer Challenge</div>
+  <h1>AI security review<br>that never sees the cloud.</h1>
+  <div class="row" style="margin-top:8px">
+    <div class="col" style="flex:1.15">
+      <p class="lede">Cloud AI code review means uploading your proprietary source to
+        someone else's servers. For regulated, air-gapped, or simply confidential codebases,
+        that's a <b class="rd">non-starter</b>.</p>
+      <p class="lede" style="margin-top:16px">Lemonade-Sec runs the <b>entire</b> pipeline —
+        static analysis <i>and</i> AI reasoning — <b class="gd">locally, on your own machine</b>,
+        powered by AMD Lemonade.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n gd">0</div><div class="l">bytes leave the box</div></div>
+        <div class="kpi"><div class="n">35</div><div class="l">rules · web2 + web3</div></div>
+        <div class="kpi"><div class="n">$0</div><div class="l">MIT core · no keys</div></div>
+      </div>
+    </div>
+    <div class="col"><img class="chart" src="../assets/chart_egress.png" alt="egress"></div>
+  </div>
+  <div class="brandfoot">Sardor Razikov · github.com/SRKRZ23/lemonade-sec · MIT</div>
+  <div class="pageno">01 / 05</div>
+</section>
+
+<!-- 2 · PRODUCT -->
+<section class="slide">
+  <div class="tag">Product · what it does <span class="pill green">MEASURED</span></div>
+  <h2>Scan → local-AI triage → report, in one command.</h2>
+  <div class="row">
+    <div class="col" style="flex:1.05">
+      <div class="card">
+        <h3>The pipeline</h3>
+        <ul>
+          <li><b>SAST core</b> — 35 regex rules across secrets, injection, SSRF, XSS,
+            crypto, JWT + <b>web3/Solidity</b> (reentrancy, arbitrary <code>delegatecall</code>…).</li>
+          <li><b>Local AI triage</b> — each finding + code context + attack playbook →
+            your <b>Lemonade</b> model returns verdict, confidence, and a PoC idea.</li>
+          <li><b>OpenAI-compatible</b> — auto-discovers the model via <code>/models</code>;
+            works with any local server.</li>
+          <li><b>Graceful offline fallback</b> — no server? A built-in heuristic still
+            produces a report. <span class="gd">Never a network call you didn't ask for.</span></li>
+        </ul>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="n">0</div><div class="l">pip dependencies</div></div>
+        <div class="kpi"><div class="n">14</div><div class="l">findings on demo</div></div>
+        <div class="kpi"><div class="n">1&nbsp;cmd</div><div class="l">to run</div></div>
+      </div>
+    </div>
+    <div class="col" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <img class="chart" src="../assets/chart_coverage.png" alt="coverage"
+           style="width:auto;max-height:300px">
+      <img class="chart" src="../assets/chart_demo.png" alt="demo"
+           style="width:auto;max-height:212px;margin-top:14px">
+    </div>
+  </div>
+  <div class="brandfoot">Stdlib-only · authorized-use gate (<code>--scope</code>) · findings are candidates</div>
+  <div class="pageno">02 / 05</div>
+</section>
+
+<!-- 3 · MARKET / BUSINESS CASE -->
+<section class="slide">
+  <div class="tag">Business case · why now <span class="pill amber">MODELED</span></div>
+  <h2>Two waves collide: local AI + AI-native AppSec.</h2>
+  <div class="row">
+    <div class="col">
+      <div class="card plain">
+        <h3>Who pays — and can't use cloud AI</h3>
+        <ul>
+          <li>Banks &amp; fintech (source-code residency rules)</li>
+          <li>Defense, gov, critical infrastructure (air-gapped)</li>
+          <li>Healthcare &amp; anyone under strict IP/NDA</li>
+          <li>Enterprises banning code in public chatbots</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Why now</h3>
+        <ul>
+          <li>On-device LLMs went usable: <b>Lemonade 2.7k★</b>, AMD Strix Halo /
+            Ryzen AI, 128&nbsp;GB unified memory.</li>
+          <li>AppSec is shifting to AI triage — but privacy blocks cloud adoption.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <h3 style="margin-bottom:12px">Market sizing <span class="note">(modeled, directional)</span></h3>
+      <div class="kpis" style="flex-direction:column;gap:14px">
+        <div class="kpi"><div class="l">TAM · AppSec / SAST + AI code tools</div>
+          <div class="n">≈ $6–8B</div><div class="note">2026, growing double-digits</div></div>
+        <div class="kpi"><div class="l">SAM · privacy-constrained / on-prem-required orgs</div>
+          <div class="n">≈ $0.9B</div><div class="note">regulated + air-gapped segment</div></div>
+        <div class="kpi"><div class="l">SOM · 3-yr obtainable (open-core wedge)</div>
+          <div class="n">≈ $15–25M</div><div class="note">land free → expand to paid teams</div></div>
+      </div>
+      <p class="note" style="margin-top:12px">Figures are modeled from public market
+        estimates — directional sizing, not audited.</p>
+    </div>
+  </div>
+  <div class="brandfoot">Wedge: the one workload security teams refuse to send to the cloud</div>
+  <div class="pageno">03 / 05</div>
+</section>
+
+<!-- 4 · BUSINESS MODEL / ECONOMICS -->
+<section class="slide">
+  <div class="tag">Business model · open-core <span class="pill amber">MODELED</span></div>
+  <h2>Free core drives adoption; teams pay for the enterprise layer.</h2>
+  <div class="row">
+    <div class="col" style="flex:1.05">
+      <table class="tiers">
+        <tr><th>Tier</th><th>Price (modeled)</th><th>What's in it</th></tr>
+        <tr><td><b>Core</b> <span class="pill">MIT</span></td><td><b>$0</b></td>
+          <td>CLI, 35 rules, local Lemonade triage, offline fallback</td></tr>
+        <tr><td><b>Team</b></td><td><b>$15</b><span class="note"> /dev/mo</span></td>
+          <td>SARIF + CI gates, policy-as-code, baseline/diff, dashboards</td></tr>
+        <tr><td><b>Enterprise</b></td><td><b>$40</b><span class="note"> /dev/mo</span></td>
+          <td>SSO/RBAC, audit, air-gap deploy, managed local-model ops, support/SLA</td></tr>
+      </table>
+      <div class="card" style="margin-top:16px">
+        <h3>Unit economics (illustrative)</h3>
+        <ul>
+          <li>Land free (OSS) → expand to Team → Enterprise. <b>NRR&gt;120%</b> target via seat growth.</li>
+          <li>Near-zero COGS: inference runs on the <b>customer's</b> hardware, not ours.</li>
+          <li>200-dev enterprise ≈ <b>$96k ARR</b>; 30 such logos ≈ <b>$2.9M ARR</b>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <img class="chart" src="../assets/chart_cost.png" alt="cost">
+      <p class="note" style="margin-top:10px">Incumbents charge per seat and require the cloud.
+        Our core is free and local; we monetize CI/governance/support — not the scan.</p>
+    </div>
+  </div>
+  <div class="brandfoot">Open-core: adoption is the moat; the paid layer is where regulated orgs already spend</div>
+  <div class="pageno">04 / 05</div>
+</section>
+
+<!-- 5 · TRACTION / VALUATION / ASK -->
+<section class="slide">
+  <div class="tag">Traction · roadmap · valuation</div>
+  <h2>Built, tested, and riding the AMD local-AI wave.</h2>
+  <div class="row">
+    <div class="col">
+      <div class="card plain">
+        <h3>Traction today <span class="pill green">REAL</span></h3>
+        <ul>
+          <li>Working tool: scans + local-AI triage, <b>14 findings</b> on the demo, MIT on GitHub.</li>
+          <li>Submitted to the <b>AMD Lemonade Developer Challenge</b>.</li>
+          <li>Author is an <b>AMD ACT&nbsp;I winner · AMD Developer Featured</b> — warm ecosystem channel.</li>
+        </ul>
+      </div>
+      <div class="card plain" style="margin-top:14px">
+        <h3>Roadmap</h3>
+        <ul>
+          <li>SARIF + GitHub code-scanning · AST taint-tracking to cut false positives</li>
+          <li>Ship as a Lemonade Marketplace app · design-partner pilots</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Valuation frame <span class="note">(illustrative · pre-revenue)</span></h3>
+        <p style="font-size:16px">Comparables in AI-native AppSec:
+          <b>Semgrep</b>, <b>Snyk</b>, <b>Socket</b> — venture-backed on OSS-led adoption.</p>
+        <div class="kpi" style="margin-top:12px">
+          <div class="l">Modeled early-stage range</div>
+          <div class="n">$3–6M</div>
+          <div class="note">pre-seed, on team + wedge + AMD tailwind — a frame, not a quote</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px;background:#111;border-color:#111">
+        <h3 style="color:#fff">The ask</h3>
+        <p style="color:#eee;font-size:16.5px">Design partners in regulated eng orgs · a Lemonade
+          marketplace slot · and the AMD hardware/relationship to make local-AI AppSec the default.</p>
+      </div>
+    </div>
+  </div>
+  <div class="brandfoot">Honest by design: REAL vs MODELED labelled throughout</div>
+  <div class="pageno">05 / 05</div>
+</section>
+
+</body>
+</html>

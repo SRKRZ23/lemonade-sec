@@ -7,4 +7,9 @@ demo_findings.json
 findings.json
 report.md
 *.local.json
+# benchmark run outputs (results recorded separately)
+amd_bench_results.*
+amd_triage_report.md
+amd_findings.json
+lemonade.log
 .DS_Store

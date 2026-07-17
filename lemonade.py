@@ -7,13 +7,13 @@ LOCAL, your source code is never uploaded to a cloud provider during triage.
 This module only does discovery + health — the actual chat call lives in triage.py
 (both speak the same OpenAI `/chat/completions` schema).
 
-Default base URL follows Lemonade's server docs: http://localhost:8000/api/v1
+Default base URL follows Lemonade's server docs: http://localhost:13305/api/v1
 Override with --lemonade-url or the LEMONADE_BASE_URL env var if you changed the port.
 Stdlib only — no SDK, no keys.
 """
 import json, os, urllib.request, urllib.error
 
-DEFAULT_BASE = os.environ.get("LEMONADE_BASE_URL", "http://localhost:8000/api/v1")
+DEFAULT_BASE = os.environ.get("LEMONADE_BASE_URL", "http://localhost:13305/api/v1")
 
 
 def _get(url, timeout=4):

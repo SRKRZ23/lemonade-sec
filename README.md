@@ -57,8 +57,9 @@ from `rules.py` (measured); economics are labelled MODELED (public list-price es
 
 ```bash
 # 1) Install & start Lemonade  →  https://lemonade-server.ai
-lemonade-server serve            # serves an OpenAI-compatible API on :8000
-lemonade-server pull Qwen2.5-Coder-7B-Instruct-GGUF   # any coder/instruct model works
+pip install lemonade-sdk        # provides the `lemonade` CLI
+lemonade backends install llamacpp:rocm   # AMD ROCm GPU backend (or skip for CPU/Vulkan)
+lemonade serve                  # serves an OpenAI-compatible API on :13305
 
 # 2) Scan the bundled vulnerable sample with LOCAL-AI triage
 git clone https://github.com/SRKRZ23/lemonade-sec && cd lemonade-sec

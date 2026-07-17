@@ -41,21 +41,26 @@ from `rules.py` (measured); economics are labelled MODELED (public list-price es
 ## Measured on real AMD hardware 🔴
 
 The local-AI triage pipeline was benchmarked on an **AMD Instinct MI300X** (gfx942, ROCm,
-`torch 2.9.1+rocm6.3`, fp16) running `Qwen2.5-Coder-1.5B-Instruct` — proving Lemonade-Sec's
+`torch 2.9.1+rocm6.3`, fp16) with `Qwen2.5-Coder` **1.5B and 7B** — proving Lemonade-Sec's
 private, on-device triage runs end-to-end on AMD accelerators.
 
-<p align="center"><img src="assets/chart_mi300x.png" width="88%" alt="Measured on AMD MI300X"/></p>
+<p align="center"><img src="assets/chart_mi300x.png" width="92%" alt="Measured on AMD MI300X — 1.5B vs 7B"/></p>
 
-| Metric | Measured |
-|---|---|
-| Token generation (decode) | **64.3 tok/s** |
-| Prefill (prompt) | **13,779 tok/s** |
-| Time to first token | **19 ms** |
+| Metric | Qwen2.5-Coder-1.5B | Qwen2.5-Coder-7B |
+|---|---|---|
+| Token generation (decode) | **64.3 tok/s** | **62.2 tok/s** |
+| Prefill (prompt) | 13,779 tok/s | 12,380 tok/s |
+| Time to first token | 19 ms | 21 ms |
 
-<sub>Honest caveats: HuggingFace eager backend (unoptimized) on an MI300X **VF** (virtualized
-fraction) — a real pipeline measurement, **not** a hardware peak; vLLM / llama.cpp-ROCm would be
-higher. The 1.5B model proves the pipeline runs on AMD; production security triage should use a
-7B+ model. Raw run: [`benchmark/results/mi300x_qwen2.5-coder-1.5b.json`](benchmark/results/mi300x_qwen2.5-coder-1.5b.json) · reproduce with `benchmark/amd_native_bench.sh`.</sub>
+Decode barely changes from 1.5B → 7B (64 → 62 tok/s): the plain HuggingFace **eager** path is
+**framework-bound, not compute-bound** — the MI300X is far from saturated, so a real serving
+backend (vLLM / llama.cpp-ROCm) would be substantially higher for both sizes.
+
+<sub>Honest caveats: unoptimized backend on an MI300X **VF** (virtualized fraction) — real
+pipeline measurements, **not** hardware peaks. Larger models give better triage; the tool's
+structured JSON system prompt (`triage.py`) further constrains the verdict. Raw runs:
+[`benchmark/results/`](benchmark/results/) · reproduce with `benchmark/amd_native_bench.sh`
+(`MODEL=Qwen/Qwen2.5-Coder-7B-Instruct` to switch size).</sub>
 
 ## How it works
 

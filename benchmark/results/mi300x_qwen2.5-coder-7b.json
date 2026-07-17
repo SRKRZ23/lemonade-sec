@@ -1,0 +1,32 @@
+{
+  "measured": true,
+  "date": "2026-07-17",
+  "tool": "lemonade-sec",
+  "runner": "lemonade v9.1.4 (huggingface-load + huggingface-bench)",
+  "hardware": {
+    "gpu": "AMD Instinct MI300X VF",
+    "gfx": "gfx942",
+    "rocm_system": "7.2",
+    "torch": "2.9.1+rocm6.3",
+    "note": "VF = virtualized fraction of the GPU; number is not a hardware peak"
+  },
+  "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "dtype": "float16",
+  "device": "cuda",
+  "backend": "Hugging Face transformers (eager)",
+  "throughput": {
+    "token_generation_tok_per_sec": 62.157,
+    "prefill_tok_per_sec": 12380.452,
+    "time_to_first_token_sec": 0.021,
+    "ttft_std_sec": 0.000,
+    "prompt_tokens": 256,
+    "response_tokens": 128,
+    "iterations": 5,
+    "warmup_iterations": 2
+  },
+  "caveats": [
+    "7B decode (62.2 tok/s) is nearly identical to 1.5B (64.3 tok/s) => the HuggingFace eager path is framework-bound, NOT compute-bound; the MI300X is far from saturated. A real serving backend (vLLM / llama.cpp-ROCm) would be substantially higher for both sizes.",
+    "MI300X VF (virtualized) — not the full physical GPU.",
+    "Triage quality improves with model size; the tool's structured JSON system prompt (triage.py) further constrains the verdict vs this raw llm-prompt test."
+  ]
+}

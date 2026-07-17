@@ -2,6 +2,8 @@
 
 **A private-by-design AI security code reviewer, powered by [Lemonade](https://lemonade-server.ai).**
 
+**[▶ Watch the 60s demo](https://youtu.be/QHRjpg7QAJw)** — scan → local-AI triage → measured on a real AMD Instinct MI300X.
+
 Lemonade-Sec scans your code for vulnerabilities and then has a **local LLM triage every
 finding** — verdict, exploitability, and a concrete proof-of-concept idea. Because the model
 runs on your own machine through Lemonade's OpenAI-compatible server, **your source code
@@ -98,7 +100,7 @@ No pip install, no dependencies — **Python 3 standard library only.**
 ### Example output
 
 ```
-🔒 Lemonade LOCAL AI online at http://localhost:8000/api/v1 — model 'Qwen2.5-Coder-7B'.
+🔒 Lemonade LOCAL AI online at http://localhost:13305/api/v1 — model 'Qwen2.5-Coder-7B'.
    Your source code stays on this machine.
 Lemonade-Sec: scanned 1 files → 14 candidates (1 crit, 6 high, 7 med, 0 low)
 report → lemonade_sec_report.md
@@ -117,7 +119,7 @@ report → lemonade_sec_report.md
 ```
 python3 lemonade_sec.py <path> [options]
   --triage              triage findings with the local Lemonade model (else offline)
-  --lemonade-url URL    Lemonade base URL (default http://localhost:8000/api/v1)
+  --lemonade-url URL    Lemonade base URL (default http://localhost:13305/api/v1)
   --model ID            pin a model id (default: auto-pick from /models)
   --offline             skip the server entirely; heuristic triage only
   --scope scope.json    authorization gate — refuse to scan outside authorized_paths

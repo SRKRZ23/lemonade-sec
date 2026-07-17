@@ -1,0 +1,8 @@
+# Lemonade-Sec · MI300X benchmark evidence
+collected_utc:   2026-07-17 14:46:56 UTC
+collected_local: 2026-07-17 14:46:56 UTC
+host: jupyter-user-260717141240-cfba1653
+uname: Linux jupyter-user-260717141240-cfba1653 6.12.48+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.48-1 (2025-09-20) x86_64 x86_64 x86_64 GNU/Linux
+source: notebooks.amd.com (AAI DevZone · Unsloth on MI300X)
+repo: https://github.com/SRKRZ23/lemonade-sec
+bench_script_commit: 841f6b80b8f0e1c9c14e64e1cd4ed07e06714c7e

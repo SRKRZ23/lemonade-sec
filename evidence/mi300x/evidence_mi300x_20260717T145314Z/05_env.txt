@@ -1,0 +1,11 @@
+Python 3.12.3
+/opt/amdgpu/share/libdrm/amdgpu.ids: No such file or directory
+torch 2.9.1+rocm6.3
+cuda_avail True
+device AMD Radeon Graphics
+Name: torch
+Version: 2.9.1+rocm6.3
+Name: lemonade-sdk
+Version: 9.1.4
+Name: transformers
+Version: 4.53.2

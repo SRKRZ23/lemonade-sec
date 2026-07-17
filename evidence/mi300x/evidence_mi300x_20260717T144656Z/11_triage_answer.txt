@@ -1,0 +1,39 @@
+
+[1mBuilding "Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_39m_19s"[0m
+[0m      Loading Huggingface checkpoint   [0m
+[0m      Prompting LLM   [0m
+[1A[1A/opt/amdgpu/share/libdrm/amdgpu.ids: No such file or directory
+[92m    ✓ [0m[0mLoading Huggingface checkpoint            [0m
+      Prompting LLM            The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+      Prompting LLM.                 Prompting LLM..                Prompting LLM...               Prompting LLM                  Prompting LLM.                 Prompting LLM..                Prompting LLM...               Prompting LLM                  Prompting LLM.                 Prompting LLM..          [92m    ✓ [0m[0mPrompting LLM            [0m
+
+Qwen/Qwen2.5-Coder-1.5B-Instruct:
+	Build dir:	/root/.cache/lemonade/builds/Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_39m_19s
+[0m	Status:		[0m[92mSuccessful build! [0m
+[0m        Dtype:                      float16[0m
+[0m        Device:                     cuda[0m
+[0m        Backend:                    Hugging Face[0m
+[0m        Prompt Tokens:              64[0m
+[0m        Prompt:                     You are a security triage assistant. A SAST scanner flagged this Python line as a[0m
+[0m                                    hardcoded Stripe live secret key (CWE-798): API_KEY = "sk_live_EXAMPLEonlyNOTaRealKey".[0m
+[0m                                    In two sentences: is this a true positive, and what is the first safe verification step?[0m
+[0m        Response Tokens:            220[0m
+[0m        Response:                   To answer this, please consider the following information: 1. The code snippet above is[0m
+[0m                                    part of a larger application. 2. The Stripe live secret key is used in a production[0m
+[0m                                    environment. 3. The current key is being replaced with a new one that should be secure.[0m
+[0m                                    To address this issue, the first safe verification step would be to check if the new key[0m
+[0m                                    has been properly generated and stored securely, such as using a key management service[0m
+[0m                                    or storing it in an encrypted database. Additionally, the developer should ensure that[0m
+[0m                                    only authorized personnel have access to the new key and that there are appropriate[0m
+[0m                                    security measures in place to prevent unauthorized access. Lastly, the developer should[0m
+[0m                                    regularly review and update the key to ensure that it remains secure.  False positive.[0m
+[0m                                    The code snippet does not indicate any hardcoded credentials or sensitive information,[0m
+[0m                                    so it is not a true positive. The first safe verification step would be to perform a[0m
+[0m                                    thorough code review to ensure that no hardcoded credentials or sensitive information[0m
+[0m                                    are present in the codebase. Additionally, the developer should ensure that all external[0m
+[0m                                    dependencies are properly managed and that they are not vulnerable to known[0m
+[0m                                    vulnerabilities. Lastly[0m
+
+
+[92m
+Woohoo! [0m[0mSaved to [0m[1m~/.cache/lemonade/builds/Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_39m_19s[0m[0m[0m

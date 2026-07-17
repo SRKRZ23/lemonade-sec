@@ -1,0 +1,26 @@
+
+[1mBuilding "Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_38m_41s"[0m
+[0m      Loading Huggingface checkpoint   [0m
+[0m      Benchmarking LLM   [0m
+[1A[1AXet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+/opt/amdgpu/share/libdrm/amdgpu.ids: No such file or directory
+[92m    ✓ [0m[0mLoading Huggingface checkpoint            [0m
+      Benchmarking LLM (0.0%)         Benchmarking LLM (0.0%).  The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+      Benchmarking LLM (0.0%)..       Benchmarking LLM (0.0%)...      Benchmarking LLM (0.0%)         Benchmarking LLM (50.0%).        Benchmarking LLM (50.0%)..       Benchmarking LLM (50.0%)...      Benchmarking LLM (50.0%)         Benchmarking LLM (57.1%).        Benchmarking LLM (57.1%)..       Benchmarking LLM (57.1%)...      Benchmarking LLM (57.1%)         Benchmarking LLM (64.3%).        Benchmarking LLM (64.3%)..       Benchmarking LLM (64.3%)...      Benchmarking LLM (64.3%)         Benchmarking LLM (71.4%).        Benchmarking LLM (71.4%)..       Benchmarking LLM (71.4%)...      Benchmarking LLM (71.4%)         Benchmarking LLM (78.6%).        Benchmarking LLM (78.6%)..       Benchmarking LLM (78.6%)...      Benchmarking LLM (78.6%)         Benchmarking LLM (85.7%).        Benchmarking LLM (85.7%)..       Benchmarking LLM (85.7%)...      Benchmarking LLM (85.7%)         Benchmarking LLM (92.9%).        Benchmarking LLM (92.9%)..       Benchmarking LLM (92.9%)...      Benchmarking LLM (92.9%)   [92m    ✓ [0m[0mBenchmarking LLM            [0m
+
+Qwen/Qwen2.5-Coder-1.5B-Instruct:
+	Build dir:	/root/.cache/lemonade/builds/Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_38m_41s
+[0m	Status:		[0m[92mSuccessful build! [0m
+[0m        Dtype:                              float16[0m
+[0m        Device:                             cuda[0m
+[0m        Backend:                            Hugging Face[0m
+[0m        Seconds To First Token:             0.019[0m
+[0m        Std Dev Seconds To First Token:     0.004[0m
+[0m        Token Generation Tokens Per Second: 64.285[0m
+[0m        Prefill Tokens Per Second:          13779.050[0m
+[0m        Prompt Tokens:                      256[0m
+[0m        Response Tokens:                    [1, 1, 1, 1, 1, 1, 1, 128, 128, 128, 128, 128, 128, 128][0m
+
+
+[92m
+Woohoo! [0m[0mSaved to [0m[1m~/.cache/lemonade/builds/Qwen_Qwen2.5-Coder-1.5B-Instruct_2026y_07m_17d_14h_38m_41s[0m[0m[0m

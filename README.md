@@ -62,7 +62,8 @@ backend (vLLM / llama.cpp-ROCm) would be substantially higher for both sizes.
 pipeline measurements, **not** hardware peaks. Larger models give better triage; the tool's
 structured JSON system prompt (`triage.py`) further constrains the verdict. Raw runs:
 [`benchmark/results/`](benchmark/results/) · reproduce with `benchmark/amd_native_bench.sh`
-(`MODEL=Qwen/Qwen2.5-Coder-7B-Instruct` to switch size).</sub>
+(`MODEL=Qwen/Qwen2.5-Coder-7B-Instruct` to switch size) · **[verifiable raw evidence](evidence/mi300x/)**
+(unedited terminal output + SHA256 checksums, collected directly on the node).</sub>
 
 ## How it works
 
